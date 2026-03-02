@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 type Event = {
   id: number;
@@ -24,17 +23,11 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen py-16 px-6 sm:px-12 max-w-4xl mx-auto">
-      <header className="text-center mb-8 relative">
-        <div className="relative inline-block bg-[#fafafa]">
-          <Image
-            src="/logo.png"
-            alt="趣味でCursorさわってみる会"
-            width={560}
-            height={168}
-            className="relative z-10 mx-auto mix-blend-lighten"
-            priority
-          />
-        </div>
+      <header className="text-center mb-8">
+        <p className="text-[11px] tracking-[0.35em] text-gray-500 uppercase mb-1">社非公認</p>
+        <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 tracking-wide">
+          Cursorを趣味で導入する会
+        </h1>
       </header>
 
       <section className="border-2 border-gray-200 rounded-2xl p-10 bg-white shadow-lg shadow-gray-200/80">
