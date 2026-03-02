@@ -3,7 +3,7 @@ import { Shippori_Mincho } from 'next/font/google';
 import './globals.css';
 import { BGMPlayer } from '@/components/BGMPlayer';
 
-const shippori = Shippori_Mincho({ weight: ['400', '600', '700'], subsets: ['latin', 'japanese'], display: 'swap' });
+const shippori = Shippori_Mincho({ weight: ['400', '600', '700'], subsets: ['latin', 'latin-ext'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: '趣味でCursorさわってみる会',
