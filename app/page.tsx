@@ -25,13 +25,13 @@ export default function HomePage() {
   return (
     <main className="min-h-screen py-16 px-6 sm:px-12 max-w-4xl mx-auto">
       <header className="text-center mb-8 relative">
-        <div className="relative inline-block">
+        <div className="relative inline-block bg-[#fafafa]">
           <Image
             src="/logo.png"
             alt="趣味でCursorさわってみる会"
             width={560}
             height={168}
-            className="relative z-10 mx-auto"
+            className="relative z-10 mx-auto mix-blend-lighten"
             priority
           />
         </div>
