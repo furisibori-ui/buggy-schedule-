@@ -48,38 +48,38 @@ export default function CreatePage() {
     <main className="min-h-screen py-16 px-6 sm:px-12 max-w-4xl mx-auto">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-gold-light text-sm no-underline hover:text-gold mb-12"
+        className="inline-flex items-center gap-2 text-gray-600 text-sm no-underline hover:text-gold mb-12"
       >
         ← トップへ
       </Link>
 
       <header className="mb-12">
-        <Image src="/logo.png" alt="ロゴ" width={280} height={84} className="mb-6 mix-blend-lighten" />
+        <Image src="/logo.png" alt="ロゴ" width={280} height={84} className="mb-6" />
         <h1 className="text-2xl text-gold font-medium">新しいイベントを作成</h1>
       </header>
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <div>
-          <label className="block text-gold-light/90 text-sm mb-2">① イベント名</label>
+          <label className="block text-gray-800 text-sm font-medium mb-2">① イベント名</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full max-w-md px-5 py-4 bg-luxury-card border border-luxury-border rounded-lg text-white placeholder-gray-500 focus:border-gold/50 focus:outline-none"
+            className="w-full max-w-md px-5 py-4 bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-gold focus:outline-none"
             placeholder="例：地域趣味のつどい 日程調整"
           />
         </div>
 
         <div>
-          <label className="block text-gold-light/90 text-sm mb-2">
+          <label className="block text-gray-800 text-sm font-medium mb-2">
             ② 日程候補（1行に1つ入力）
           </label>
-          <p className="text-gray-500 text-xs mb-2">参加者に選んでもらいたい日時を、改行で区切って入力してください</p>
+          <p className="text-gray-600 text-xs mb-2">参加者に選んでもらいたい日時を、改行で区切って入力してください</p>
           <textarea
             value={datesText}
             onChange={(e) => setDatesText(e.target.value)}
             rows={6}
-            className="w-full max-w-md px-5 py-4 bg-luxury-card border border-luxury-border rounded-lg text-white placeholder-gray-500 resize-y focus:border-gold/50 focus:outline-none"
+            className="w-full max-w-md px-5 py-4 bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 resize-y focus:border-gold focus:outline-none"
             placeholder={'例：\n2/28 10:00\n2/28 14:00\n3/1 10:00'}
           />
         </div>
