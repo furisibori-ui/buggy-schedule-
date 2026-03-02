@@ -147,7 +147,7 @@ export default function EventPage() {
   if (!event) {
     return (
       <main className="min-h-screen py-16 px-6 sm:px-12 max-w-4xl mx-auto">
-        <p className="text-gray-500">読み込み中...</p>
+        <p className="text-gray-600">読み込み中...</p>
       </main>
     );
   }
@@ -169,22 +169,22 @@ export default function EventPage() {
     <main className="min-h-screen py-16 px-6 sm:px-12 max-w-4xl mx-auto">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-gold-light text-sm no-underline hover:text-gold mb-12"
+        className="inline-flex items-center gap-2 text-gray-600 text-sm no-underline hover:text-gold mb-12"
       >
         ← トップへ
       </Link>
 
       <header className="mb-12">
-        <Image src="/logo.png" alt="ロゴ" width={240} height={72} className="mb-4 mix-blend-lighten" />
+        <Image src="/logo.png" alt="ロゴ" width={240} height={72} className="mb-4" />
         <h1 className="text-2xl text-gold font-medium">{event.name}</h1>
       </header>
 
       {bestDates.length > 0 && (
-        <section className="mb-8 p-6 rounded-xl border-2 border-gold/50 bg-gold/10">
+        <section className="mb-8 p-6 rounded-xl border-2 border-amber-200 bg-amber-50">
           <h2 className="text-gold text-base font-semibold mb-2 tracking-wider">おすすめの日程</h2>
-          <p className="text-white text-lg">
+          <p className="text-gray-900 text-lg">
             {bestDates.join('、')}
-            <span className="text-gold-light/80 text-sm ml-2">
+            <span className="text-gray-600 text-sm ml-2">
               （○が{maxMaru}件）
             </span>
           </p>
@@ -192,20 +192,20 @@ export default function EventPage() {
       )}
 
       <section className="mb-12">
-        <h2 className="text-gold-light/90 text-base font-medium mb-6">
+        <h2 className="text-gray-800 text-base font-medium mb-6">
           {bestDates.length > 0 ? '日程候補（下記から選んで回答してください）' : '日程候補'}
         </h2>
         <ul className="list-none p-0 m-0 space-y-3">
           {dates.map((d) => (
             <li
               key={d}
-              className={`py-4 px-6 rounded-lg border flex items-center justify-between ${
+              className={`py-4 px-6 rounded-lg border-2 flex items-center justify-between ${
                 bestDates.includes(d)
-                  ? 'border-gold/50 bg-gold/5'
-                  : 'border-luxury-border bg-luxury-card/50'
+                  ? 'border-amber-300 bg-amber-50'
+                  : 'border-gray-200 bg-white'
               }`}
             >
-              <span>
+              <span className="text-gray-900">
                 {bestDates.includes(d) && (
                   <span className="inline-block px-2 py-0.5 text-xs gold-bg text-black rounded mr-2 mb-1">
                     おすすめ
@@ -225,39 +225,39 @@ export default function EventPage() {
         </ul>
       </section>
 
-      <section className="mb-12 pt-8 border-t border-luxury-border bg-luxury-card/30 rounded-xl p-8 border border-luxury-border">
+      <section className="mb-12 pt-8 border-t border-gray-200 bg-white rounded-xl p-8 border-2 border-gray-200 shadow-sm">
         <h2 className="text-gold text-lg font-medium mb-2 tracking-wider">回答する</h2>
-        <p className="text-gold-light/80 text-sm mb-6">
+        <p className="text-gray-600 text-sm mb-6">
           ① 名前を入力 → ② 各日程で ○参加可  △要相談  ×不可 を選んでください
         </p>
         <form onSubmit={handleSubmit} className="space-y-8">
           <div>
-            <label className="block text-gold-light/90 text-sm mb-2">① お名前</label>
+            <label className="block text-gray-800 text-sm font-medium mb-2">① お名前</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full max-w-md px-5 py-4 bg-luxury-dark border border-luxury-border rounded-lg text-white placeholder-gray-500 focus:border-gold/50 focus:outline-none"
+              className="w-full max-w-md px-5 py-4 bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:border-gold focus:outline-none"
               placeholder="例：山田 太郎"
             />
           </div>
 
           <div>
-            <label className="block text-gold-light/90 text-sm mb-4">② 各日程の希望を選択</label>
+            <label className="block text-gray-800 text-sm font-medium mb-4">② 各日程の希望を選択</label>
             <div className="space-y-3">
               {dates.map((d) => (
-                <div key={d} className="flex flex-wrap items-center gap-4 py-3 px-4 rounded-lg bg-luxury-dark/60 border border-luxury-border">
-                  <span className="text-white font-medium min-w-[8rem]">{d}</span>
+                <div key={d} className="flex flex-wrap items-center gap-4 py-3 px-4 rounded-lg bg-gray-50 border-2 border-gray-200">
+                  <span className="text-gray-900 font-medium min-w-[8rem]">{d}</span>
                   <div className="flex gap-2">
                     {CHOICES.map(({ value, label, color }) => (
                       <button
                         key={value}
                         type="button"
                         onClick={() => setAnswers((prev) => ({ ...prev, [d]: value }))}
-                        className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+                        className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
                           answers[d] === value
-                            ? `${color} text-white`
-                            : 'bg-luxury-card border-luxury-border text-gray-400 hover:border-gray-500'
+                            ? `${color} text-white border-transparent`
+                            : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'
                         }`}
                       >
                         {value} {label}
@@ -281,20 +281,20 @@ export default function EventPage() {
         </form>
       </section>
 
-      <section className="mt-16 pt-10 border-t border-luxury-border">
-        <h2 className="text-gold-light/90 text-base font-medium mb-6">回答一覧</h2>
-        <div className="overflow-x-auto rounded-xl border border-luxury-border">
+      <section className="mt-16 pt-10 border-t border-gray-200">
+        <h2 className="text-gray-800 text-base font-medium mb-6">回答一覧</h2>
+        <div className="overflow-x-auto rounded-xl border-2 border-gray-200 bg-white shadow-sm">
           <table className="w-full border-collapse text-sm">
             <thead>
-              <tr className="bg-luxury-card">
-                <th className="border-b border-luxury-border px-4 py-3 text-left text-gold-light/90 font-medium">
+              <tr className="bg-gray-50">
+                <th className="border-b border-gray-200 px-4 py-3 text-left text-gray-800 font-medium">
                   名前
                 </th>
                 {dates.map((d) => (
                   <th
                     key={d}
-                    className={`border-b border-luxury-border px-4 py-3 text-left font-medium ${
-                      bestDates.includes(d) ? 'text-gold' : 'text-gold-light/90'
+                    className={`border-b border-gray-200 px-4 py-3 text-left font-medium ${
+                      bestDates.includes(d) ? 'text-gold' : 'text-gray-800'
                     }`}
                   >
                     {d}
@@ -303,24 +303,24 @@ export default function EventPage() {
                     )}
                   </th>
                 ))}
-                <th className="border-b border-luxury-border px-4 py-3 w-20"></th>
+                <th className="border-b border-gray-200 px-4 py-3 w-20"></th>
               </tr>
             </thead>
             <tbody>
               {responses.map((r) => (
-                <tr key={r.id} className="border-b border-luxury-border last:border-0">
-                  <td className="px-4 py-3 text-white">{r.name}</td>
+                <tr key={r.id} className="border-b border-gray-200 last:border-0">
+                  <td className="px-4 py-3 text-gray-900 font-medium">{r.name}</td>
                   {dates.map((d) => (
                     <td key={d} className="px-4 py-3">
                       <span
                         className={
                           r.answers?.[d] === '○'
-                            ? 'text-emerald-400'
+                            ? 'text-emerald-600 font-medium'
                             : r.answers?.[d] === '△'
-                            ? 'text-amber-400'
+                            ? 'text-amber-600 font-medium'
                             : r.answers?.[d] === '×'
-                            ? 'text-gray-400'
-                            : 'text-gray-600'
+                            ? 'text-gray-500'
+                            : 'text-gray-400'
                         }
                       >
                         {r.answers?.[d] ?? '-'}
@@ -331,7 +331,7 @@ export default function EventPage() {
                     <button
                       type="button"
                       onClick={() => handleDeleteResponse(r.id)}
-                      className="text-red-400/70 hover:text-red-400 text-xs"
+                      className="text-red-500 hover:text-red-600 text-xs"
                     >
                       削除
                     </button>
@@ -342,7 +342,7 @@ export default function EventPage() {
           </table>
         </div>
         {responses.length === 0 && (
-          <p className="text-gray-500 text-sm mt-6">まだ回答はありません。</p>
+          <p className="text-gray-600 text-sm mt-6">まだ回答はありません。</p>
         )}
       </section>
 
@@ -350,7 +350,7 @@ export default function EventPage() {
         <button
           type="button"
           onClick={handleDeleteEvent}
-          className="px-4 py-2 text-sm text-gray-500 hover:text-red-400 transition-colors"
+          className="px-4 py-2 text-sm text-gray-500 hover:text-red-500 transition-colors"
         >
           イベントを削除
         </button>
