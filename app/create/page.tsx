@@ -54,7 +54,9 @@ export default function CreatePage() {
       </Link>
 
       <header className="mb-12">
-        <Image src="/logo.png" alt="ロゴ" width={280} height={84} className="mb-6" />
+        <div className="inline-block bg-[#fafafa] mb-6">
+          <Image src="/logo.png" alt="ロゴ" width={280} height={84} className="mix-blend-lighten" />
+        </div>
         <h1 className="text-2xl text-gold font-medium">新しいイベントを作成</h1>
       </header>
 
