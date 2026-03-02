@@ -7,13 +7,13 @@
 }
 
 body {
-  background: #0a0a0a url(/bg.jpg) center center / cover no-repeat fixed;
-  color: #e8e8e8;
+  background: #fafafa;
+  color: #1a1a1a;
   font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   min-height: 100vh;
 }
 
-/* 雎ｪ闖ｯ縺ｪ繧ｴ繝ｼ繝ｫ繝峨い繧ｯ繧ｻ繝ｳ繝� */
+/* 豪華なゴールドアクセント */
 .gold-text {
   color: #d4af37;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
