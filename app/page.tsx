@@ -24,15 +24,24 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen py-16 px-6 sm:px-12 max-w-4xl mx-auto">
-      <header className="text-center mb-8">
-        <Image
-          src="/logo.png"
-          alt="趣味でCursorさわってみる会"
-          width={560}
-          height={168}
-          className="mx-auto mix-blend-lighten"
-          priority
-        />
+      <header className="text-center mb-8 relative">
+        <div className="relative inline-block">
+          <Image
+            src="/logo.png"
+            alt="趣味でCursorさわってみる会"
+            width={560}
+            height={168}
+            className="relative z-10 mx-auto mix-blend-lighten"
+            priority
+          />
+          {/* ロゴ下の白フェードで背景に溶けにくくする */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 top-full w-[120%] h-24 -mt-2 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
+            }}
+          />
+        </div>
       </header>
 
       <section className="border-2 border-gold/40 rounded-2xl p-10 bg-luxury-card/70 backdrop-blur-xl shadow-[0_0_40px_rgba(212,175,55,0.15)]">
