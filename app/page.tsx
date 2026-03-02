@@ -31,27 +31,20 @@ export default function HomePage() {
             alt="趣味でCursorさわってみる会"
             width={560}
             height={168}
-            className="relative z-10 mx-auto mix-blend-lighten"
+            className="relative z-10 mx-auto"
             priority
-          />
-          {/* ロゴ下の白フェードで背景に溶けにくくする */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 top-full w-[120%] h-24 -mt-2 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
-            }}
           />
         </div>
       </header>
 
-      <section className="border-2 border-gold/40 rounded-2xl p-10 bg-luxury-card/70 backdrop-blur-xl shadow-[0_0_40px_rgba(212,175,55,0.15)]">
+      <section className="border-2 border-gray-200 rounded-2xl p-10 bg-white shadow-lg shadow-gray-200/80">
         <h2 className="text-gold text-xl font-semibold mb-8 tracking-wider">イベント一覧</h2>
         <ul className="list-none p-0 m-0 space-y-4">
           {events.map((ev) => (
             <li key={ev.id}>
               <Link
                 href={`/event/${ev.slug}`}
-                className="block py-5 px-6 rounded-xl bg-luxury-dark/90 border-2 border-luxury-border hover:border-gold/60 hover:bg-luxury-card hover:shadow-lg transition-all text-white text-lg font-medium no-underline"
+                className="block py-5 px-6 rounded-xl bg-gray-50 border-2 border-gray-200 text-gray-900 hover:border-gold hover:bg-amber-50/50 transition-all text-lg font-medium no-underline"
               >
                 {ev.name}
               </Link>
@@ -59,14 +52,14 @@ export default function HomePage() {
           ))}
         </ul>
         {events.length === 0 && (
-          <p className="text-gray-500 text-sm">イベントはまだありません。</p>
+          <p className="text-gray-600 text-sm">イベントはまだありません。</p>
         )}
       </section>
 
       <div className="mt-8 text-center">
         <Link
           href="/create"
-          className="inline-block px-4 py-2 text-sm text-gray-500 hover:text-gray-400 no-underline transition-colors"
+          className="inline-block px-4 py-2 text-sm text-gray-600 hover:text-gray-800 no-underline transition-colors"
         >
           新しいイベントを作成
         </Link>
