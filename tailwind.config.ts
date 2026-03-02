@@ -16,9 +16,9 @@ const config: Config = {
           dark: '#b8860b',
         },
         luxury: {
-          dark: '#0a0a0a',
-          card: '#1a1a1a',
-          border: '#2a2a2a',
+          dark: '#1a1a1a',
+          card: '#ffffff',
+          border: '#e5e7eb',
         },
       },
       backgroundImage: {
